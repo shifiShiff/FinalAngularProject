@@ -1,0 +1,93 @@
+<!-- <p>login works!</p>
+
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email" required>
+    @if(loginForm.get('email')?.invalid && loginForm.get('email')?.touched){
+    <div>
+      שגיאה: אימייל לא תקין
+    </div>
+}
+  
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password" required>
+    @if(loginForm.get('password')?.invalid && loginForm.get('password')?.touched){
+       <div>
+      שגיאה: סיסמה נדרשת
+    </div>
+    }
+    
+  
+    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+  </form>
+   -->
+
+   <!-- <p>login works!</p>
+
+   <div class="auth-container">
+    <mat-card class="auth-card">
+      <h2>התחברות</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        
+        <mat-form-field appearance="outline">
+          <mat-label>אימייל</mat-label>
+          <input matInput type="email" formControlName="email" required>
+          @if(loginForm.get('email')?.invalid && loginForm.get('email')?.touched){
+
+          <mat-error>
+            שגיאה: אימייל לא תקין
+          </mat-error>
+        }
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>סיסמה</mat-label>
+          <input matInput type="password" formControlName="password" required>
+          @if(loginForm.get('password')?.invalid && loginForm.get('password')?.touched){
+          <mat-error>
+            שגיאה: סיסמה נדרשת
+          </mat-error>
+        }
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">התחברות</button>
+      </form>
+    </mat-card>
+  </div> -->
+  
+
+  <div class="login-container">
+    <mat-card class="login-card">
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" required>
+            @if(loginForm.get('email')?.invalid && loginForm.get('email')?.touched){
+
+              <mat-error>
+                Error: Not valid Email
+              </mat-error>
+            }
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" required>
+            @if(loginForm.get('password')?.invalid && loginForm.get('password')?.touched){
+              <mat-error>
+                Error: Password is required
+              </mat-error>
+            }
+          </mat-form-field>
+  
+          <button mat-raised-button color="primary" class="full-width" type="submit" [disabled]="loginForm.invalid">
+            Send
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

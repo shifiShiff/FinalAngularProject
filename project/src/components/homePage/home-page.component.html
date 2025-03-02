@@ -1,0 +1,99 @@
+<!-- <p>home-page works!</p>
+
+
+<div>hello {{user?.name}}</div>
+
+
+@for(coures of courses; track coures.id){
+<div>{{coures.title}}</div>
+<div>{{coures.description}}</div>
+} -->
+
+<!-- 
+<div class="home-container">
+  
+      <div class="user-info">
+          <mat-card-title>
+            hello, <span class="user-name">{{ user?.name }}</span>
+            <div class="user-avatar">{{ user?.name?.charAt(0) }}</div>
+          </mat-card-title>
+      </div>
+    
+  
+    <div class="home-container">
+
+    <div class="courses-list">
+
+      <mat-accordion>
+        @for (course of courses; track course.id) {
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{ course.title }}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>{{ course.description }}</p>
+
+            <mat-list>
+              @for (lesson of course.lessons; track lesson.title) {
+                <mat-list-item>{{ lesson.title }}---- {{ lesson.content }}</mat-list-item>
+              }
+            </mat-list>
+
+          </mat-expansion-panel>
+        }
+      </mat-accordion>
+    </div>
+      </div>
+
+   -->
+
+
+
+   <div class="about-container">
+    <mat-card class="about-card">
+      <mat-card-header>
+        <mat-card-title>✨ אודות המערכת לניהול קורסים ✨</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          ברוכים הבאים לפלטפורמת **ניהול הקורסים** שלנו!  
+          כאן תוכלו לנהל וללמוד בצורה חכמה, נוחה ומתקדמת.  
+          הפלטפורמה מיועדת למנהלים, מורים ותלמידים וכוללת מגוון יכולות:
+        </p>
+  
+        <mat-divider></mat-divider>
+  
+        <h3>👑 למנהלים</h3>
+        <p>
+          כמנהלים, תוכלו לנהל את כל המערכת כולל יצירת קורסים, הוספת מורים, ניהול תלמידים  
+          וצפייה בסטטיסטיקות מתקדמות על התקדמות הקורסים.
+        </p>
+        
+        <mat-divider></mat-divider>
+  
+        <h3>📚 למורים</h3>
+        <p>
+          המורים יכולים להעלות קורסים, ליצור שיעורים עם תוכן עשיר (וידאו, טקסט וקבצים)  
+          ולעקוב אחרי התקדמות התלמידים בזמן אמת.
+        </p>
+  
+        <mat-divider></mat-divider>
+  
+        <h3>🎓 לתלמידים</h3>
+        <p>
+          התלמידים יכולים להירשם לקורסים, לצפות בשיעורים, לבצע משימות ולתקשר עם המורים  
+          על מנת להתקדם ולשפר את הידע שלהם.
+        </p>
+  
+        <mat-divider></mat-divider>
+  
+        <p class="bottom-text">
+          🚀 האתר פותח בטכנולוגיות מתקדמות:  
+          **Angular** לצד הלקוח, **Node.js** לצד השרת ו-**SQLite** כבסיס נתונים.  
+          המערכת מאובטחת עם **JWT** ומספקת חוויית שימוש חלקה ונוחה.  
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
