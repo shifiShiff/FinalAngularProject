@@ -33,10 +33,11 @@ export class UserAPIService {
     this.http.post('http://localhost:3000/api/auth/register',value )
     .subscribe ({
       next: (res:any) => {console.log('Sign in successfully!');
-        // sessionStorage.setItem('token', res.token)
-        // localStorage.setItem('userId',res.userId)
+        sessionStorage.setItem('token', res.token);
+          localStorage.setItem('userId',res.userId)
+          localStorage.setItem('role',res.role)
 
-      this.router.navigate(['/login'])
+      this.router.navigate(['/home'])
     },
     error: err=>{
       

@@ -6,7 +6,7 @@ import { CoursesApiService } from '../../services/courses-api.service';
 
 @Component({
   selector: 'app-course-syllabus',
-  imports: [MatExpansionModule,MatListModule],
+  imports: [MatExpansionModule, MatListModule],
   templateUrl: './course-syllabus.component.html',
   styleUrl: './course-syllabus.component.css'
 })
@@ -20,7 +20,7 @@ export class CourseSyllabusComponent implements OnInit {
   }
 
   loadcourses() {
-    this.courseService.getAllCourses().subscribe({
+    this.courseService.getAllStudentCourses().subscribe({
       next: (courses) => {
         console.log(courses);
         this.list = courses;

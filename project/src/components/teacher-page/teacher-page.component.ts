@@ -24,7 +24,6 @@ export class TeacherPageComponent implements OnInit {
   showFormUpdate: boolean = false;
   selctedCours: number | null | undefined = null;
   courseForm!: FormGroup;
-  index: number = 0;
   ShowAddLesson: boolean = false;
   ShowUpdateLesson:boolean=false;
   selectedlesson: number | null | undefined = null;
@@ -71,17 +70,6 @@ export class TeacherPageComponent implements OnInit {
 
   addCourse() {
     if (this.courseForm.valid) {
-      // this.http.post('http://localhost:3000/api/courses', this.courseForm.value, {
-
-      // }).subscribe({
-      //   next: res =>{ console.log('Success:', res),
-      //     this.loadcourses();
-      //     this.courseForm.reset();
-
-      //   },
-      //   error: err => console.error('Error:', err)
-      // });
-      // this.showFormAdd = false
       
       this.courseService.addCourse(this.courseForm.value).subscribe({
         
@@ -110,9 +98,8 @@ export class TeacherPageComponent implements OnInit {
         ...this.courseForm.value,
         teacherId: localStorage.getItem('userId')
       };
-      this.http.put(`http://localhost:3000/api/courses/${this.selctedCours}`, updateData, {
 
-      }).subscribe({
+      this.courseService.updateCourse(updateData,this.selctedCours).subscribe({
         next: res => {
           console.log('Success:', res),
           this.courseForm.reset();
@@ -131,9 +118,7 @@ export class TeacherPageComponent implements OnInit {
 
   deleteCourse(id: number | undefined) {
 
-    this.http.delete(`http://localhost:3000/api/courses/${id}`, {
-
-    }).subscribe({
+    this.courseService.deleteCourse(id).subscribe({
       next: res => {
         console.log('Success:', res),
         this.loadcourses();
@@ -155,14 +140,12 @@ export class TeacherPageComponent implements OnInit {
     if (this.courseForm.valid) {
 
       const updateData = {
-        // ...this.courseForm.value,
         title: this.courseForm.value.title,
         content: this.courseForm.value.description
       };
 
-      this.http.post(`http://localhost:3000/api/courses/${this.selctedCours}/lessons`, updateData, {
 
-      }).subscribe({
+      this.courseService.addlesson(updateData,this.selctedCours).subscribe({
         next: res => {
           console.log('Success:', res),
           this.courseForm.reset();
@@ -195,9 +178,7 @@ export class TeacherPageComponent implements OnInit {
         content: this.courseForm.value.description,
         courseId:this.selctedCours
       };
-      this.http.put(`http://localhost:3000/api/courses/${this.selctedCours}/lessons/${this.selectedlesson}`, updateData, {
-
-      }).subscribe({
+      this.courseService.updateLesson(updateData,this.selctedCours,this.selectedlesson).subscribe({
         next: res => {
           console.log('Success:', res),
           this.courseForm.reset();
@@ -216,9 +197,7 @@ export class TeacherPageComponent implements OnInit {
 
   deletelesson(Cid: number | undefined,Lid: number | undefined) {
 
-    this.http.delete(`http://localhost:3000/api/courses/${Cid}/lessons/${Lid}`, {
-
-    }).subscribe({
+    this.courseService.deleteLesson(Cid,Lid).subscribe({
       next: res => {
         console.log('Success:', res),
         this.loadcourses();
